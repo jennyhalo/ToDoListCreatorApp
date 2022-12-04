@@ -40,7 +40,7 @@ export class AuthService
     )
    } // end of constructor
 }
-  async function signIn(email: any, password: any)
+  async function signIn(email: string, password: string)
  {
   const loading = await this.LoadingCtrl.create({
     message: 'Authenticating..',
@@ -53,7 +53,7 @@ loading.present();
 this.afauth.setPersistence(firebase.default.auth.Auth.Persistence.LOCAL)
 .then(()=> {
   this.afauth.signInWithEmailAndPassword(email, password)
-  .then((data: { user: { emailVerified: any; }; })=>
+  .then((data: { user: { emailVerified: string; }; })=>
   {
     if(!data.user.emailVerified)
     {
@@ -100,8 +100,12 @@ async function toast(message: any, status: any)
     position: 'top',
     duration: 2000
   });
+  
   toast.present();
+  
 } // end of toast
 
-
+console.log(signIn);
+console.log(signOut);
+console.log(toast);
 
