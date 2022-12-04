@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import * as firebase from 'firebase/compat';
+import * as firebase from 'firebase/compat/app';
 import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { Observable, of } from 'rxjs';
