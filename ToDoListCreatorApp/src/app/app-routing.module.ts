@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: 'my-lists',
+    loadChildren: () => import('./my-lists/my-lists.module').then( m => m.MyListsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -25,23 +27,22 @@ const routes: Routes = [
   },
   {
     path: 'forgot-password',
-    loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+    loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'first-task',
     loadChildren: () => import('./first-task/first-task.module').then( m => m.FirstTaskPageModule)
   },
-  {
-    path: 'my-lists',
-    loadChildren: () => import('./my-lists/my-lists.module').then( m => m.MyListsPageModule)
-  },
+
   {
     path: 'to-do-app',
     loadChildren: () => import('./to-do-app/to-do-app.module').then( m => m.ToDoAppPageModule)
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'feedback',
