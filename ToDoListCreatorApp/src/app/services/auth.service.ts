@@ -39,9 +39,7 @@ export class AuthService
       })
     )
    } // end of constructor
-
 }
-
   async function signIn(email: any, password: any)
  {
   const loading = await this.LoadingCtrl.create({
