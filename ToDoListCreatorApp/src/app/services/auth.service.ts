@@ -13,6 +13,9 @@ import { switchMap } from 'rxjs/operators';
 })
 export class AuthService 
 {
+  signIn(email: string, password: string) {
+    throw new Error('Method not implemented.');
+  }
   user$: Observable<User | null | undefined>;
   user: User;
 
