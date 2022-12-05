@@ -1,11 +1,12 @@
-<ion-content class="ion-padding">
+<ion-content class= "ion-padding">
   <div class="upper background-container">
     <div class="logo">
-      <p id="login">To-Do List Creator</p>
+      <p style="text-align: center;" id="login">To-Do List Creator</p>
     </div>
   </div>
   <div class="middle">
     <div class="box">
+      <p style="text-align: center;">Login to Your Account</p>
       <form #loginForm="ngForm">
         <ion-list>
         <ion-item class="input-box">
@@ -28,6 +29,10 @@
         </div>
       </ion-list>
       </form>
+      <div style="text-align: center;">
+        <p>Don't have account? Register <a [routerLink]="['/register']">Here!</a><p>
+        <p><a [routerLink]="['/forgot-password']">Forgot Password</a></p>
+      </div>
       </div>
       </div>
 </ion-content>

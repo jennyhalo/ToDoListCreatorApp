@@ -1,9 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
 
+<ion-content class="ion-padding">
+  <h2 style="text-align: center;">My Profile</h2>
+ <ion-card>
+  <ion-card-content>
+  <h2 style="text-align: center;">{{user?.userName}}</h2>
+  <p style="text-align: center;">"Motivotional quote here"</p>
+  <div class="hr"> </div>
+  <p style="text-align: center;">Tasks completed</p>
+  <div class="hr"> </div>
+  
+ <p style="text-align: center;">Give feedback for To-Do List Creator <a [routerLink]="['/feedback']">Here!</a></p>
+  <ion-button type="submit" expand="block" shape="round" (click)="logout()">logout
+</ion-button>
+</ion-card-content>
+
+ </ion-card>
 </ion-content>

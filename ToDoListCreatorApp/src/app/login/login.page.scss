@@ -1,0 +1,42 @@
+ion-content {
+    background-image: rgb(150, 77, 89);
+    min-height: 100%;
+
+    .upper{
+        width: 100%;
+        height: 200px;
+       
+
+        #login {
+            text-align: center;
+            font-size: 60px;
+        }
+    }
+    .middle {
+
+
+        .box{
+            border-radius: 10px;
+            background: rgb(179, 106, 236);
+            padding: 20px;
+            opacity: 0,5;
+            
+
+            p{
+                text-align: center;
+            }
+            .input-box{
+                border-radius: 13px;
+                height: 60%;
+                width: 100%;
+            }
+
+            .btn{
+
+                ion-button{
+                    --background:violet;
+                }
+            }
+        }
+    }
+}
