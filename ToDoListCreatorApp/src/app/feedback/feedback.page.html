@@ -1,9 +1,17 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>feedback</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding">
+<div>
+  <h3 id="header" style="text-align: center;">Give us Feedback</h3>
+  <p id="message" style="text-align: center;">Your feedback is important for us, thank you for helping us improve our app!</p>
+</div>
+<form #feedbackForm="ngForm">
+  <ion-item text-wrap>
+  <ion-textarea type="text" id="textbox"></ion-textarea>
+</ion-item>
+  <div class="btn">
+    <ion-button type="submit" expand="block" shape="round" (click)="sendFeedback()"
+    [disabled]="feedbackForm.invalid">Submit
+  </ion-button>
+  </div>
+</form>
 </ion-content>
