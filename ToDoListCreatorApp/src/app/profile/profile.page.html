@@ -7,6 +7,7 @@
   <h2 style="text-align: center;">My Profile</h2>
  <ion-card>
   <ion-card-content>
+    <div class="container">
     <ion-avatar (click)="changeImage()">
       <img *ngIf="profile?.['imageUrl']; else placeholder_avatar;" [src]="profile?.['imageUrl']"/>
       <ng-template #placeholder_avatar>
@@ -15,6 +16,7 @@
         </div>
       </ng-template>
     </ion-avatar>
+  </div>
   <h2 style="text-align: center;">{{user?.userName}}</h2>
   <p style="text-align: center;">"Motivotional quote here"</p>
   <div class="hr"> </div>
