@@ -4,6 +4,14 @@
   <h2 style="text-align: center;">My Profile</h2>
  <ion-card>
   <ion-card-content>
+    <ion-avatar (click)="changeImage()">
+      <img *ngIf="profile?.['imageUrl']; else placeholder_avatar;" [src]="profile?.['imageUrl']"/>
+      <ng-template #placeholder_avatar>
+        <div class="fallback">
+          <p>Select avatar</p>
+        </div>
+      </ng-template>
+    </ion-avatar>
   <h2 style="text-align: center;">{{user?.userName}}</h2>
   <p style="text-align: center;">"Motivotional quote here"</p>
   <div class="hr"> </div>

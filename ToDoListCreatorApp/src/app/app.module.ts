@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { FormsModule } from '@angular/forms';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideStorage, getStorage } from '@angular/fire/storage';
 
 // Firebase
 import { AngularFireModule } from '@angular/fire/compat';
@@ -20,6 +24,9 @@ import { environment } from '../environments/environment.prod';
 
 // AUTH SERVICE
 import { AuthService } from './services/auth.service';
+
+// AVATAR SERVICE
+import { AvatarService } from './services/avatar.service';
 
 // AUTH GUARD
 import { AuthGuard } from './guards/auth.guard';
@@ -35,13 +42,26 @@ import { AuthGuard } from './guards/auth.guard';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+		provideAuth(() => getAuth()),
+		provideFirestore(() => getFirestore()),
+		provideStorage(() => getStorage())
   ],
   providers: [
     AuthService,
+    AvatarService,
     AuthGuard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+
+
+
+
+	
+		
+
