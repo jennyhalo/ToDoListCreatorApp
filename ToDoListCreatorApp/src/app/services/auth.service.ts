@@ -11,14 +11,10 @@ import { switchMap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class AuthService 
 {
-  signIn(email: string, password: string) {
-    throw new Error('Method not implemented.');
-  }
-  user$: Observable<User | null | undefined>;
-  user: User;
-
   constructor
   (
     private afs: AngularFirestore,
@@ -42,60 +38,48 @@ export class AuthService
       })
     )
    } // end of constructor
-}
-  async function signIn(email: string, password: string)
- {
-  const loading = await this.LoadingCtrl.create({
-    message: 'Authenticating..',
-    spinner: 'crescent',
-    showBackDrop: true
-  });
 
-loading.present();
+  user$: Observable<User | null | undefined>;
+  user: User;
 
-this.afauth.setPersistence(firebase.default.auth.Auth.Persistence.LOCAL)
-.then(()=> {
-  this.afauth.signInWithEmailAndPassword(email, password)
-  .then((data: { user: { emailVerified: string; }; })=>
+
+  async signIn(email: string, password: string) 
   {
-    if(!data.user.emailVerified)
+    const loading = await this.loadingCtrl.create({
+      message: 'Authenticating..',
+      spinner: 'crescent',
+      showBackdrop: true
+    });
+  
+  loading.present();
+  
+  this.afauth.setPersistence(firebase.default.auth.Auth.Persistence.LOCAL)
+  .then(()=> {
+    this.afauth.signInWithEmailAndPassword(email, password)
+    .then((data)=>
     {
+      if(!data.user?.emailVerified)
+      {
+        loading.dismiss();
+        this.toast('Please verify your email address!', 'warning');
+        this.afauth.signOut();
+      } else {
+        loading.dismiss();
+        this.router.navigate(['/my-lists']);
+      }
+    })
+    .catch((error: { message: any; }) => {
       loading.dismiss();
-      this.toast('Please verify your email address!', 'warning');
-      this.afauth.signOut();
-    } else {
-      loading.dismiss();
-      this.router.navigate(['/my-lists']);
-    }
+      this.toast(error.message, 'danger');
+    })
   })
   .catch((error: { message: any; }) => {
     loading.dismiss();
     this.toast(error.message, 'danger');
-  })
-})
-.catch((error: { message: any; }) => {
-  loading.dismiss();
-  this.toast(error.message, 'danger');
-});
-
-} // end of signIn
-
-async function signOut()
-{
-  const loading = await this.loadingCtrl.create({
-    spinner: 'crescent',
-    showBackdrop: true
   });
-  loading.present();
+  }// end of signIn
 
-  this.afauth.signOut()
-  .then(()=> {
-    loading.dismiss();
-    this.router.navigate(['/login']);
-  })
-} // end of signout
-
-async function toast(message: any, status: any)
+async toast(message: any, status: any)
 {
   const toast = await this.toastr.create({
     message: message,
@@ -108,7 +92,20 @@ async function toast(message: any, status: any)
   
 } // end of toast
 
-console.log(signIn);
-console.log(signOut);
-console.log(toast);
+async signOut()
+{
+ const loading = await this.loadingCtrl.create({
+    spinner: 'crescent',
+    showBackdrop: true
+  });
+  loading.present();
+
+  this.afauth.signOut()
+  .then(()=> {
+    loading.dismiss();
+    this.router.navigate(['/login']);
+  })
+} // end of signout
+}
+
 

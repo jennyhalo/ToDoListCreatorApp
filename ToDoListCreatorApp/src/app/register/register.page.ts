@@ -40,6 +40,7 @@ export class RegisterPage implements OnInit
 
       this.afauth.createUserWithEmailAndPassword(this.email, this.password)
       .then((data)=> {
+        data.user?.sendEmailVerification();
         this.afs.collection('user').doc(data.user!.uid).set({
           'userId': data.user!.uid,
           'userName':this.name,
