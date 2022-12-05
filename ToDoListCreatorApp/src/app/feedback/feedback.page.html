@@ -1,5 +1,15 @@
 
 <ion-content class="ion-padding">
+  <div class="container">
+    <ion-avatar>
+      <img *ngIf="profile?.['imageUrl']; else placeholder_avatar;" [src]="profile?.['imageUrl']"/>
+      <ng-template #placeholder_avatar>
+        <div class="fallback">
+          <p>Select avatar</p>
+        </div>
+      </ng-template>
+    </ion-avatar>
+  </div>
 <div>
   <h3 id="header" style="text-align: center;">Give us Feedback</h3>
   <p id="message" style="text-align: center;">Your feedback is important for us, thank you for helping us improve our app!</p>
@@ -8,10 +18,6 @@
   <ion-item text-wrap>
   <ion-textarea type="text" id="textbox"></ion-textarea>
 </ion-item>
-  <div class="btn">
-    <ion-button type="submit" expand="block" shape="round" (click)="sendFeedback()"
-    [disabled]="feedbackForm.invalid">Submit
-  </ion-button>
-  </div>
+    <ion-button expand="block" shape="round" (click)="sendFeedback()">Submit</ion-button>
 </form>
 </ion-content>
