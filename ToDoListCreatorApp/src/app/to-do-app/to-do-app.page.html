@@ -1,9 +1,58 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>to-do-app</ion-title>
+   <ion-item lines="none">
+    <ion-label style="font-weight: 800; font-size: 3em;">
+      Today
+      <p style="font-weight: 400; color: #222222">
+        {{today | date:'fullDate'}}</p>
+    </ion-label>
+   </ion-item>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  
+  <ion-card *ngFor="let item of todoList" class="ion-margin">
+    <ion-card-header>
+      <ion-card-subtitle [style.color]="item.itemPriority === 'high' ? 'red' : (item.itemPriority === 'low' ? 'green' : 'orange')">
+        {{item.itemCategory}}
+      </ion-card-subtitle>
+      <ion-item>
+        <ion-icon *ngIf="item.itemPriority === 'high' " color="danger" size="small" name="ellipse"></ion-icon>
+        <ion-icon *ngIf="item.itemPriority === 'middle' " color="orange" size="small" name="ellipse"></ion-icon>
+        <ion-icon *ngIf="item.itemPriority === 'low' " color="green" size="small" name="ellipse"></ion-icon>
 
+        <ion-label>{{item.itemName}}</ion-label>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-label>Due {{item.itemDueDate | date:'fullDate'}}</ion-label>
+    </ion-card-content>
+
+    <ion-row>
+
+      <ion-item>
+        <ion-icon name="share-outline"></ion-icon>
+        <p>Share</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="checkmark-outline"></ion-icon>
+        <p>Compelete</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="trash-outline"></ion-icon>
+        <p>Cancel</p>
+      </ion-item>
+
+    </ion-row>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
