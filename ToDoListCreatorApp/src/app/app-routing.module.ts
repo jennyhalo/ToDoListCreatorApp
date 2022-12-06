@@ -4,8 +4,8 @@ import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'my-lists',
-    loadChildren: () => import('./my-lists/my-lists.module').then( m => m.MyListsPageModule),
+    path: 'to-do-app',
+    loadChildren: () => import('./to-do-app/to-do-app.module').then( m => m.ToDoAppPageModule),
     canActivate: [AuthGuard]
   },
   {
@@ -24,16 +24,6 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  },
-  
-  {
-    path: 'first-task',
-    loadChildren: () => import('./first-task/first-task.module').then( m => m.FirstTaskPageModule)
-  },
-
-  {
-    path: 'to-do-app',
-    loadChildren: () => import('./to-do-app/to-do-app.module').then( m => m.ToDoAppPageModule)
   },
   {
     path: 'profile',
