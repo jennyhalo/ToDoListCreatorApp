@@ -2,7 +2,11 @@
 <ion-content class="ion-padding">
     <ion-grid>
       <ion-row justify-content-around>
-        <ion-col></ion-col>
+        <ion-col>
+            
+              <ion-icon type="button" class="backbutton" name="arrow-back" (click)="backButton()"></ion-icon>
+            
+        </ion-col>
         <ion-col></ion-col>
         <ion-col></ion-col>
         <ion-col></ion-col>
@@ -24,6 +28,6 @@
 </div>
 <form #feedbackForm="ngForm">
   <ion-textarea placeholder="Type here..." type="text" id="textbox"></ion-textarea>
-    <ion-button expand="block" shape="round" (click)="sendFeedback()">Submit</ion-button>
+    <ion-button class="submitbtn" expand="block" shape="round" (click)="sendFeedback()">Submit</ion-button>
 </form>
 </ion-content>

@@ -48,7 +48,12 @@ ion-avatar {
     padding-left: 15px;
     padding-right: 15px;
 }
-ion-button{
+.backbutton {
+  margin-top: 6px;
+  color: #222222;
+  font-size: 35px;
+}
+.submitbtn{
   --background: rgba(155, 115, 224, 1);
   padding-left: 10px;
   padding-right: 10px;
