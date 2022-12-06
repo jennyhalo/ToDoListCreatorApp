@@ -31,6 +31,8 @@ export class ToDoAppPage implements OnInit {
 
   constructor() { }
 
+  addTask() {}
+
   ngOnInit() {
   }
 

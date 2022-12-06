@@ -1,6 +1,11 @@
 ion-content{
-    --backround: white;   
+    --background: 
+url('../../assets/img/todotaustakuva.jpg') no-repeat center/cover;
 }
+
+ion-card {
+        background: rgba(255,255,255,0.5);
+    }
 
 P {
     font-size: 16px;

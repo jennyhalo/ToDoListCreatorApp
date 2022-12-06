@@ -47,7 +47,11 @@ const routes: Routes = [
   {
     path: 'thank-you',
     loadChildren: () => import('./thank-you/thank-you.module').then( m => m.ThankYouPageModule)
+  },  {
+    path: 'add-todo',
+    loadChildren: () => import('./add-todo/add-todo.module').then( m => m.AddTodoPageModule)
   },
+
 ];
 
 @NgModule({
