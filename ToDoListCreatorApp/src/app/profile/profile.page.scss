@@ -2,7 +2,15 @@ ion-content {
     --background: 
 url('../../assets/img/todotaustakuva.jpg') no-repeat center/cover;
 
+    #header {
+      font-family: pacifico;
+      font-size: 30px;
+      margin-top: 40px;
 
+    }
+    ion-card {
+      background: rgba(255,255,255,0.5);
+  }
     .hr {
         align-items: center;
         border-bottom: 1px solid #ccc; 
