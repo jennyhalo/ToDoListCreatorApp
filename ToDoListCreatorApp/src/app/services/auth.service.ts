@@ -65,7 +65,7 @@ export class AuthService
         this.afauth.signOut();
       } else {
         loading.dismiss();
-        this.router.navigate(['/my-lists']);
+        this.router.navigate(['/to-do-app']);
       }
     })
     .catch((error: { message: any; }) => {
