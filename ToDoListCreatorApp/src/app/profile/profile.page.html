@@ -5,9 +5,11 @@
     <ion-back-button defaultHref="/my-lists"></ion-back-button>
   </ion-button>
   <h2 id="header" style="text-align: center;">My Profile</h2>
- <ion-card>
-  <ion-card-content>
-    <div class="container">
+<div class="profileinfo">
+    <ion-grid>
+      <ion-row justify-content-around>
+        <ion-col></ion-col>
+        <ion-col>
     <ion-avatar (click)="changeImage()">
       <img *ngIf="profile?.['imageUrl']; else placeholder_avatar;" [src]="profile?.['imageUrl']"/>
       <ng-template #placeholder_avatar>
@@ -16,20 +18,29 @@
         </div>
       </ng-template>
     </ion-avatar>
-  </div>
-  <h2 style="text-align: center;">{{user?.userName}}</h2>
-  <p style="text-align: center;">"Motivotional quote here"</p>
+  </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+ </ion-grid>
+  <h2 id="username" style="text-align: center;">{{user?.userName}}</h2>
+  <p id="motivation" style="text-align: center;">"Motivotional quote here"</p>
   <div class="hr"> </div>
-    <ion-icon name="trophy-outline"></ion-icon>
-  <p style="text-align: center;">Tasks completed</p>
+  <ion-grid>
+    <ion-row justify-content-around>
+      <ion-col></ion-col>
+      <ion-col>
+    <ion-icon class="icon" name="trophy-outline"></ion-icon>
+  </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  </ion-grid>
+  <p id="completed" style="text-align: center;">Tasks completed</p>
   <div class="hr"> </div>
   
- <p style="text-align: center;">Give feedback for To-Do List Creator <a [routerLink]="['/feedback']">Here!</a></p>
-  <ion-button type="submit" expand="block" shape="round" (click)="logout()">logout
+ <p id="feedbacktext" style="text-align: center;">Give feedback for To-Do List Creator <a [routerLink]="['/feedback']">Here!</a></p>
+  <ion-button expand="block" shape="round" (click)="logout()">logout
 </ion-button>
-</ion-card-content>
-
- </ion-card>
+</div>
  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </ion-content>
