@@ -1,7 +1,13 @@
 
 <ion-content class="ion-padding">
-  <div class="container">
-    <ion-avatar>
+    <ion-grid>
+      <ion-row justify-content-around>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+        <ion-col>
+    <ion-avatar type="button" (click)="gotoprofile()">
       <img *ngIf="profile?.['imageUrl']; else placeholder_avatar;" [src]="profile?.['imageUrl']"/>
       <ng-template #placeholder_avatar>
         <div class="fallback">
@@ -9,15 +15,15 @@
         </div>
       </ng-template>
     </ion-avatar>
-  </div>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
 <div>
   <h3 id="header" style="text-align: center;">Give us Feedback</h3>
   <p id="message" style="text-align: center;">Your feedback is important for us, thank you for helping us improve our app!</p>
 </div>
 <form #feedbackForm="ngForm">
-  <ion-item text-wrap>
-  <ion-textarea type="text" id="textbox"></ion-textarea>
-</ion-item>
+  <ion-textarea placeholder="Type here..." type="text" id="textbox"></ion-textarea>
     <ion-button expand="block" shape="round" (click)="sendFeedback()">Submit</ion-button>
 </form>
 </ion-content>

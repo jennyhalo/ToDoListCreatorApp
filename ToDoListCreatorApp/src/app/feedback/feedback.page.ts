@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AvatarService } from '../services/avatar.service';
 
 @Component({
   selector: 'app-feedback',
@@ -11,9 +12,14 @@ export class FeedbackPage implements OnInit {
   profile: import("@angular/fire/firestore").DocumentData;
 
   constructor(
-    private router: Router
-  ) { }
 
+    private router: Router,
+    private avatarService: AvatarService
+  ) { 
+    this.avatarService.getUserProfile().subscribe((data) => {
+      this.profile = data;
+    });
+  }
   ngOnInit() {
   }
   sendFeedback() {
@@ -21,4 +27,8 @@ export class FeedbackPage implements OnInit {
     this.router.navigate(['/thank-you']);
 
   }
+  gotoprofile() {
+    this.router.navigate(['/profile']);
+  }
+  
 }
