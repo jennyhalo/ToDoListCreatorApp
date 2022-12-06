@@ -2,7 +2,7 @@
   <ion-toolbar>
    <ion-item lines="none">
     <ion-label style="font-weight: 800; font-size: 3em; font-family: Pacifico;">
-      Today
+      To Do List
       <p style="font-weight: 400; color: #222222">
         {{today | date:'fullDate'}}</p>
     </ion-label>
@@ -19,18 +19,10 @@
       </ion-item>
     </ion-card-header>
 
-    <ion-row>
-
-      <ion-item>
-        <ion-icon name="checkmark-outline"></ion-icon>
-        <p>Compelete</p>
-      </ion-item>
-
       <ion-item button (click)="delete(i)">
         <ion-icon name="trash-outline"></ion-icon>
         <p>Delete</p>
       </ion-item>
-    </ion-row>
   </ion-card>
 </ion-content>
 
