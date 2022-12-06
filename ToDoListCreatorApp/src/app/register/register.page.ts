@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from  '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { LoadingController, ToastController } from '@ionic/angular';
 
 @Component({
@@ -22,7 +23,8 @@ export class RegisterPage implements OnInit
     private afauth: AngularFireAuth,
     private router: Router,
     private loadingCtrl: LoadingController,
-    private toastr: ToastController
+    private toastr: ToastController,
+    private navCtrl: NavController
   ) { }
 
   ngOnInit() {
@@ -72,5 +74,8 @@ export class RegisterPage implements OnInit
   changeType() {
     this.type =!this.type;
   }
+  backButton() {
+    this.navCtrl.back();
 
+  }
 }
