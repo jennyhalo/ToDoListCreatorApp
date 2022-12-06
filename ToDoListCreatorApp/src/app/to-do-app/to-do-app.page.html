@@ -1,11 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-item lines="none" slot="end">
-      <ion-avatar type="button" (click)="gotoprofile()">
-        <img *ngIf="profile?.['imageUrl']; else placeholder_avatar;" [src]="profile?.['imageUrl']"/>
-        <ng-template #placeholder_avatar>
-        </ng-template>
-      </ion-avatar>
+      <ion-icon class="profileicon" name="person-circle-outline" type="button" (click)="gotoprofile()"></ion-icon>
      </ion-item>
    <ion-item lines="none">
     <ion-label style="font-weight: 800; font-size: 3em; font-family: Pacifico; text-shadow: 2px 2px rgba(0, 0, 0, 0.25)">
