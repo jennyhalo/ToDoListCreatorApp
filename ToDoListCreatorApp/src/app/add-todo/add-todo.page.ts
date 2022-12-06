@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-todo',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTodoPage implements OnInit {
 
-  constructor() { }
+  taskName
+
+  taskObject
+  constructor(public modalCtrl:ModalController) { }
 
   ngOnInit() {
   }
 
+  async dismis() {
+    await this.modalCtrl.dismiss(this.taskObject)
+  }
+
+
+  AddTask() {
+    this.taskObject = ({itemName:this.taskName,
+    }) 
+    this.dismis()                      
+  }
 }

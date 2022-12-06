@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { AddTodoPage } from '../add-todo/add-todo.page';
 
 @Component({
   selector: 'app-to-do-app',
@@ -7,31 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToDoAppPage implements OnInit {
 
-  todoList = [{
-    itemName : 'Coding',
-    itemDueDate: '13-10-21',
-    itemPriority: 'high',
-    itemCategory: 'Work' 
-  },
-  {
-    itemName : 'Coding',
-    itemDueDate: '13-10-21',
-    itemPriority: 'low',
-    itemCategory: 'Word' 
-  },
-  {
-    itemName : 'Workout',
-    itemDueDate: '13-05-22',
-    itemPriority: 'high',
-    itemCategory: 'Personal' 
-  }
-]
+  todoList: any[] = []
 
   today : number = Date.now()
 
-  constructor() { }
+  constructor(public modalCtrl:ModalController) { }
 
-  addTask() {}
+  async addTask() {
+    const modal = await this.modalCtrl.create({
+      component: AddTodoPage
+    })
+
+    modal.onDidDismiss().then(newTaskObj =>{
+      this.todoList.push(newTaskObj.data)
+    })
+    return await modal.present()
+  }
 
   ngOnInit() {
   }
