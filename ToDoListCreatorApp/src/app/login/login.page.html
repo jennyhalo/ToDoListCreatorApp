@@ -4,9 +4,8 @@
       <p style="text-align: center;" id="login">To-Do List Creator</p>
     </div>
   </div>
-  <ion-card>
-    <ion-card-content>
-      <p style="text-align: center;">Login to Your Account</p>
+  <div class="loginform">
+      <p id="logintext" style="text-align: center;">Login to Your Account</p>
       <form #loginForm="ngForm">
         <ion-list>
         <ion-item class="input-box">
@@ -29,9 +28,8 @@
         </div>
       </ion-list>
       </form>
-      <div style="text-align: center;">
+      <div id="registr" style="text-align: center;">
         <p>Don't have account? Register <a [routerLink]="['/register']">Here!</a><p>
       </div>
-    </ion-card-content>
-      </ion-card>
+  </div>
 </ion-content>
