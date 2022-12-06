@@ -4,6 +4,7 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { AvatarService } from '../services/avatar.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -22,7 +23,8 @@ export class ProfilePage implements OnInit
     private avatarService: AvatarService,
     private router: Router,
     private loadingController: LoadingController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private navCtrl: NavController
   ) { 
     this.avatarService.getUserProfile().subscribe((data) => {
       this.profile = data;
@@ -64,4 +66,8 @@ export class ProfilePage implements OnInit
 			}
 		}
 	}
+  backButton() {
+    this.navCtrl.back();
+
+  }
 }

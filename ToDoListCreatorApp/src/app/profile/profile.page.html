@@ -1,23 +1,14 @@
 
 
 <ion-content class="ion-padding">
-  <ion-button slot="start">
-    <ion-back-button defaultHref="/my-lists"></ion-back-button>
-  </ion-button>
+    <ion-icon type="button" class="backbutton" name="arrow-back" (click)="backButton()"></ion-icon>
   <h2 id="header" style="text-align: center;">My Profile</h2>
 <div class="profileinfo">
     <ion-grid>
       <ion-row justify-content-around>
         <ion-col></ion-col>
         <ion-col>
-    <ion-avatar (click)="changeImage()">
-      <img *ngIf="profile?.['imageUrl']; else placeholder_avatar;" [src]="profile?.['imageUrl']"/>
-      <ng-template #placeholder_avatar>
-        <div class="fallback">
-          <p>Select avatar</p>
-        </div>
-      </ng-template>
-    </ion-avatar>
+          <ion-icon class="placeholder" name="person-circle-outline"></ion-icon>
   </ion-col>
     <ion-col></ion-col>
   </ion-row>
