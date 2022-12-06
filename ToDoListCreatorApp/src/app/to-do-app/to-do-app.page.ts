@@ -26,6 +26,10 @@ export class ToDoAppPage implements OnInit {
     return await modal.present()
   }
 
+  delete(index) {
+    this.todoList.splice(index,1)
+  }
+
   ngOnInit() {
   }
 
