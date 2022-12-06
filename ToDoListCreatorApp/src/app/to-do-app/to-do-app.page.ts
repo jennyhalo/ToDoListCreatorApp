@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddTodoPage } from '../add-todo/add-todo.page';
+import { AvatarService } from '../services/avatar.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-to-do-app',
@@ -12,8 +14,18 @@ export class ToDoAppPage implements OnInit {
   todoList: any[] = []
 
   today : number = Date.now()
-
-  constructor(public modalCtrl:ModalController) { }
+  profile: import("@angular/fire/firestore").DocumentData;
+  constructor
+  (
+    public modalCtrl:ModalController,
+    private avatarService: AvatarService,
+    private router: Router
+    
+    ) { 
+      this.avatarService.getUserProfile().subscribe((data) => {
+        this.profile = data;
+      });
+    }
 
   async addTask() {
     const modal = await this.modalCtrl.create({
@@ -29,7 +41,9 @@ export class ToDoAppPage implements OnInit {
   delete(index) {
     this.todoList.splice(index,1)
   }
-
+  gotoprofile() {
+    this.router.navigate(['/profile']);
+  }
   ngOnInit() {
   }
 

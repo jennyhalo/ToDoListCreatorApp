@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'ToDoListCreatorApp',
+  appId: 'com.example.app',
+  appName: 'todolistcreatorapp',
   webDir: 'www',
   bundledWebRuntime: false
 };

@@ -1,4 +1,23 @@
 <ion-header [translucent]="true">
+  <ion-grid>
+    <ion-row justify-content-around>
+      <ion-col>
+      </ion-col>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+      <ion-col>
+  <ion-avatar type="button" (click)="gotoprofile()">
+    <img *ngIf="profile?.['imageUrl']; else placeholder_avatar;" [src]="profile?.['imageUrl']"/>
+    <ng-template #placeholder_avatar>
+      <div class="fallback">
+        <p>Select avatar</p>
+      </div>
+    </ng-template>
+  </ion-avatar>
+</ion-col>
+</ion-row>
+</ion-grid>
   <ion-toolbar>
    <ion-item lines="none">
     <ion-label style="font-weight: 800; font-size: 3em; font-family: Pacifico;">
