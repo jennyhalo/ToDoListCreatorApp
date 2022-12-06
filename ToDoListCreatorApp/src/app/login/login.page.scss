@@ -19,35 +19,15 @@ url('../../assets/img/todotaustakuva.jpg') no-repeat center/cover;
          background-position: 50%;
          
        } */
-
-    .upper{
-        width: 100%;
-        height: 200px;
-       
-
+       ion-card {
+        background: rgba(255,255,255,0.5);
+    }
         #login {
             text-align: center;
             font-size: 60px;
+            font-family: pacifico;
         }
-    }
-    .middle {
-
-
-        .box{
-            border-radius: 10px;
-            background: rgb(179, 106, 236);
-            padding: 20px;
-            opacity: 0,5;
-            
-
-            p{
-                text-align: center;
-            }
-            .input-box{
-                border-radius: 13px;
-                height: 60%;
-                width: 100%;
-            }
+  
 
             .btn{
 
@@ -55,5 +35,5 @@ url('../../assets/img/todotaustakuva.jpg') no-repeat center/cover;
                     --background:violet;
                 }
             }
-        }
-    }
+        
+    

@@ -1,9 +1,14 @@
-
+ion-content{
+    --background: 
+url('../../assets/img/todotaustakuva.jpg') no-repeat center/cover;
+}
 #thanking {
     font-size: 60px;
+    font-family: pacifico;
     padding-top: 300px;
+    margin-bottom: 30px;
 }
 
 #goback {
-    font-size: 20px;
+    font-size: 25px;
 }

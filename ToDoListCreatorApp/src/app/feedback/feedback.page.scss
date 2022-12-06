@@ -1,4 +1,29 @@
-
+ion-content{
+    --background: 
+url('../../assets/img/todotaustakuva.jpg') no-repeat center/cover;
+}
+ion-avatar {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .preview {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .fallback {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #bfbfbf;
+  
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-weight: 500;
+  }
 
 #textbox {
     border: 1px solid;
@@ -9,8 +34,9 @@
     margin-top: 40px;
 }
 #header {
-    margin-top: 60px;
-    font-size: 60px;
+    margin-top: 200px;
+    font-size: 40px;
+    font-family: pacifico;
 }
 #message {
     font-size: 20px;

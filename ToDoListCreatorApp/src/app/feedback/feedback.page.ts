@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class FeedbackPage implements OnInit {
 
+  profile: import("@angular/fire/firestore").DocumentData;
+
   constructor(
     private router: Router
   ) { }
