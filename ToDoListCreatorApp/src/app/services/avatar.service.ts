@@ -37,7 +37,7 @@ export class AvatarService {
       await setDoc(userDocRef, {
         imageUrl
       });
-      return true;
+      return this;
     } catch(e) {
       return null;
 
