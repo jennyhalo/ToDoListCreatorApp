@@ -8,7 +8,16 @@
       <ion-row justify-content-around>
         <ion-col></ion-col>
         <ion-col>
-          <ion-icon class="placeholder" name="person-circle-outline"></ion-icon>
+          <div class="preview">
+            <ion-avatar (click)="changeImage()">
+              <img *ngIf="profile?.['imageUrl']; else placheolder_avatar;" [src]="['profile.imageUrl']" />
+              <ng-template #placheolder_avatar>
+                <div class="fallback">
+                  <p>Select avatar</p>
+                </div>
+              </ng-template>
+            </ion-avatar>
+          </div>
   </ion-col>
     <ion-col></ion-col>
   </ion-row>
